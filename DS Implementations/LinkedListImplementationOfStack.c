@@ -17,14 +17,14 @@ void Pop(){
 	struct Node* temp2=temp->next;
 	head=temp2;
 	}
-	void Print(){
-		struct Node* temp=head;
-		while(temp!=NULL){
-			printf("%d ",temp->data);
-			temp=temp->next;
-			}
-			printf("\n");
-			}
+void Print(){
+	struct Node* temp=head;
+	while(temp!=NULL){
+		printf("%d ",temp->data);
+		temp=temp->next;
+		}
+		printf("\n");
+		}
 int main(){
 	Push(2);
 	Push(5);

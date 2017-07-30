@@ -3,7 +3,7 @@
 #include <stack>
 using namespace std;
 
-int AreBal(char opening,char closing){
+int AreBal(char opening, char closing){
 	if(opening=='[' && closing ==']')return 1;
 	else if(opening=='{' && closing =='}')return 1;
 	else if(opening=='(' && closing ==')')return 1;
@@ -12,8 +12,8 @@ int AreBal(char opening,char closing){
 int AreParanthesesBalanced(string exp){
 	stack<char> s;
 	int len=0;
-	for(int j=1;exp[j]!='\0';j++){
-		len+=j;
+	for(int j=0;exp[j]!='\0';j++){
+		++len;
 		}
 	for(int i=0;i<len;i++){
 		if(exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
@@ -38,4 +38,3 @@ int main()
 		cout<<"Not Balanced\n";
 	return 0;
 }
-

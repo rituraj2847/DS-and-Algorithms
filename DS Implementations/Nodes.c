@@ -10,7 +10,7 @@ struct Node {
 };
 struct Node* head;
 void Insert(int x){
-	struct Node* temp=malloc(sizeof(struct Node));    //new node() in C++
+	struct Node* temp=(Node*)malloc(sizeof(struct Node));    //new node() in C++
 	temp->data=x;
 	temp->link=head;
 	head=temp;
@@ -32,7 +32,7 @@ int main()
 	scanf("%d",&n);
 	for(i=0;i<n;i++){
 		printf("ENter the number:\n");
-		printf("%d", sizeof(int));
+		printf("%ld", sizeof(int));
 		scanf("%d",& x);
 		Insert(x);
 		Print();

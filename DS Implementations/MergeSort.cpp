@@ -6,14 +6,14 @@ void merge(int *arr, int l, int mid, int r){
 	int tmp[r-l+1], posl=l, posr=mid+1;
 	int i=0;
 	while(posl <= mid && posr <= r ){
-			if(arr[posl] > arr[posr]){
-				tmp[i++] = arr[posr];
-				posr++;
-				}
-			else{
-				tmp[i++] = arr[posl];
-				posl++;
-				}
+		if(arr[posl] > arr[posr]){
+			tmp[i++] = arr[posr];
+			posr++;
+			}
+		else{
+			tmp[i++] = arr[posl];
+			posl++;
+			}
 		}
 	while(posl <= mid){
 		tmp[i++] = arr[posl];

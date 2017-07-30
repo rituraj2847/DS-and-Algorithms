@@ -36,10 +36,10 @@ int main(){
 	printf("Enter no of values you want to insert\n");
 	scanf("%d",&num);
 	for(i=0;i<num;i++){
-	printf("\nEnter the value and index: ");
-	scanf("%d %d",&data,&n);
-	Insert(data,n);
-	Print();
+		printf("\nEnter the value and index: ");
+		scanf("%d %d",&data,&n);
+		Insert(data,n);
+		Print();
 }
 return 0;
 }

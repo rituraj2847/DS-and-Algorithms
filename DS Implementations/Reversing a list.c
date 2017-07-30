@@ -15,7 +15,7 @@ void Print(){
 }
 }
 void Insert(int val){
-	struct Node* temp=malloc(sizeof(struct Node));
+	struct Node* temp=(Node*)malloc(sizeof(struct Node));
 	temp->data=val;
 	if(head==NULL){
 		head=temp;

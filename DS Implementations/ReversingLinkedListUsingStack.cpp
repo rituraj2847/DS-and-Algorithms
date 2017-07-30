@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stack>
 #include <stdlib.h>
+using namespace std;
 struct Node{
 	int data;
 	Node* next;
@@ -52,5 +53,6 @@ int main()
 	Reverse();
 	Print();
 	return 0;
+
 }
 

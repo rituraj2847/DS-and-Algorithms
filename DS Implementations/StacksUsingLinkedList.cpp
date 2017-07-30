@@ -7,7 +7,7 @@ struct Node{
 	};
 struct Node* top=NULL;
 void Push(int x){
-	struct Node* temp=malloc(sizeof(struct Node));
+	struct Node* temp=(Node*)malloc(sizeof(struct Node));
 	temp->data=x;
 	temp->next=top;
 	top=temp;
@@ -33,7 +33,7 @@ void Top(){
 		temp=temp->next;
 	i++;
 }
-	printf("\nTop:%2d\n",i);
+	printf("\nTop:%d\n",i);
 }
 void IsEmpty(){
 	if(top==NULL)

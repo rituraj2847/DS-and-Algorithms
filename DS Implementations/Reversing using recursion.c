@@ -49,5 +49,3 @@ int main(){
 	Reverse(head);
 	return 0;
 	}
-
-	

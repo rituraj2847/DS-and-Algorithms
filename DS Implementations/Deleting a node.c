@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 //Program for deleting a node at nth position
+
 int i;
 struct Node{
 	int data;
