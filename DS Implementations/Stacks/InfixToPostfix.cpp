@@ -40,7 +40,7 @@ char peek(Stack* stack){
 bool IsEmpty(Stack* stack){
 	return (stack->top == -1)?1:0;
 }
-void InfixToPostfix(int size, char* exp){
+void InfixToPostfix(int size, string exp){
 	string ns = "";
 	Stack* stack = (Stack*)malloc(sizeof(Stack));
 	stack->array = (int*)malloc(size);
@@ -51,11 +51,21 @@ void InfixToPostfix(int size, char* exp){
 			ns += exp[i];
 		}
 		else if(IsOperator(exp[i])){
-			while(!IsEmpty(stack) && Prec(exp[i]) < Prec(peek(stack))){
+			while(peek(stack) !='(' && Prec(exp[i]) < Prec(peek(stack))){
 				ns += peek(stack);
 				pop(stack);
 			}
 			push(stack, exp[i]);
+		}
+		else if(exp[i] == '('){
+			push(stack, exp[i]);
+		}
+		else if(exp[i] == ')'){
+			while(peek(stack) != '('){
+				ns += peek(stack);
+				pop(stack);
+			}
+			pop(stack);
 		}
 	}
 	while(!IsEmpty(stack)){
@@ -65,6 +75,6 @@ void InfixToPostfix(int size, char* exp){
 	cout<<"The postfix expression is: "<<ns<<"\n";
 }
 int main(){
-	char exp[]="2+3*9-2";
-	InfixToPostfix(7, exp);
+	string exp="(2+5)*(1-3)+2";
+	InfixToPostfix(exp.size(), exp);
 }	
