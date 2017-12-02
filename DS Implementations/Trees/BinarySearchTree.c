@@ -23,7 +23,7 @@ struct Node* Insert(struct Node* root, int data){
 		root->right=Insert(root->right, data);
 	}
 		return root;
-		}
+}
 int Search(struct Node* root,int data){
 	if(root==NULL) return 0;
 	if(root->data==data) return 1;

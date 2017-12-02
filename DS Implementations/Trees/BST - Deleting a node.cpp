@@ -14,23 +14,23 @@ BSTNode* GetNewNode(int data){
 	root->left = NULL;
 	root->right = NULL;
 	return root;
-	}
+}
 BSTNode* Insert(int data, BSTNode* root){
 	if(root == NULL){
 		root = GetNewNode(data);
 		}
-	else if(root->data >= data){
+	else if(root->data > data){
 		root->left = Insert(data, root->left);
 		}
-	else {root->right = Insert(data, root->right);}
+	else root->right = Insert(data, root->right);
 	return root;
-	} 
+} 
 BSTNode* FindMin(BSTNode* root){
 	while (root->left != NULL){
 		root = root->left;
 		}
 		return root;
-	}
+}
 BSTNode* Delete(int data, BSTNode* root){
 	if(root == NULL){
 		return NULL;
@@ -51,19 +51,20 @@ BSTNode* Delete(int data, BSTNode* root){
 			}
 		// 1 child
 		else if(root->left == NULL){
-			root = root->right;
-			return root;
+			struct BSTNode* temp = root->right;
+			free(root);
+			return temp;
 			}
 		else if(root->right == NULL){
-			root = root->left;
-			return root;}
+			struct BSTNode* temp = root->left;
+			free(root);
+			return temp;
+		}
 		// 2 children
-		else{
 			struct BSTNode* temp = FindMin(root->right);
 			root->data = temp->data;
-			root->right = Delete(data, root->right);
+			root->right = Delete(temp->data, root->right);
 			return root;
-			}
 		}
 	}
 void InOrder(BSTNode* root){
@@ -76,15 +77,15 @@ void InOrder(BSTNode* root){
 int main(){
 	BSTNode* root = NULL;
     root = Insert(10, root);
-	root = Insert(6, root);
-	root = Insert(9, root);
+	root = Insert(16, root);
+	root = Insert(13, root);
 	root = Insert(3, root);
 	root = Insert(2, root);
 	root = Insert(7, root);
 	root = Insert(4, root);
 	cout<<"\nInOrder Traversal before delete: ";
 	InOrder(root);
-	root = Delete(10, root);
+	root = Delete(3, root);
 	cout<<"\nInOrder Traversal after delete: ";
 	InOrder(root);
 	cout<<"\n";

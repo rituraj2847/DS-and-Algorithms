@@ -15,18 +15,15 @@ int Prec(char c){
 		case '*':
 		case '/':
 				return 2;
+		case '^':
+				return 3;
 	}
 }
 int IsOperator(char c){
-	if(c=='+' || c=='-' || c=='/' || c=='*'){
-		return 1;
-		}
-	else return 0;
+		return (c=='+' || c=='-' || c=='/' || c=='^' || c=='*')? 1:0;
 	}
 int IsOperand(char c){
-	if(c>=48 && c<=57){
-		return 1;}
-	else return 0;
+	return (c>=48 && c<=57)? 1:0;
 	}
 void pop(Stack* stack){
 	--stack->top;
@@ -51,7 +48,7 @@ void InfixToPostfix(int size, string exp){
 			ns += exp[i];
 		}
 		else if(IsOperator(exp[i])){
-			while(peek(stack) !='(' && Prec(exp[i]) < Prec(peek(stack))){
+			while(peek(stack) !='(' && Prec(exp[i]) <= Prec(peek(stack))){
 				ns += peek(stack);
 				pop(stack);
 			}
@@ -75,6 +72,6 @@ void InfixToPostfix(int size, string exp){
 	cout<<"The postfix expression is: "<<ns<<"\n";
 }
 int main(){
-	string exp="(2+5)*(1-3)+2";
+	string exp="2/(1-3)+8*4";
 	InfixToPostfix(exp.size(), exp);
 }	

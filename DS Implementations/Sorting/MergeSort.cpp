@@ -1,5 +1,5 @@
 //Merge Sort
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 void merge(int *arr, int l, int mid, int r){
@@ -27,7 +27,7 @@ void merge(int *arr, int l, int mid, int r){
 	for(int j=l; j<=r; j++){
 		arr[j] = tmp[i++];
 	}
-	}
+}
 void mergeSort(int *arr, int l, int r){
 	int mid = (l+r)/2;
 	if(l<r){
@@ -37,16 +37,18 @@ void mergeSort(int *arr, int l, int r){
 	}
 }
 int main(){
-	int n;
-	cout<<"enter the size : ";
-	cin>>n;
-	int arr[n];
-	cout<<"enter the elements : ";
-	for(int i = 0; i < n; i++){
-		cin>>arr[i];
+	int arr[100000];
+	clock_t beg_time = clock();
+	srand(time(NULL));
+	for(int i=0;i<100000;i++){
+		arr[i] = i;
 	}
-	mergeSort(arr,0,n-1);
-	for(int i=0;i<n;i++){
+	int len = sizeof(arr)/sizeof(arr[0]);
+
+	cout<<"Time: "<<(float)(clock()-beg_time)/CLOCKS_PER_SEC<<" seconds\n";
+
+	mergeSort(arr,0,len-1);
+	for(int i=0;i<len;i++){
 		cout<<arr[i]<<" ";
 		}
 	}

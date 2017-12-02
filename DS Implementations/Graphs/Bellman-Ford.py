@@ -16,6 +16,8 @@ class Graph:
 			for u,v,w in self.graph:
 				if self.distance[u] != float("Inf") and self.distance[v] > w + self.distance[u]:
 					self.distance[v] = w + self.distance[u]
+		
+		#Check if graph contains cycle
 		for u, v, w in self.graph:
 			if self.distance[u] != float("Inf") and self.distance[u] + w < self.distance[v]:
 				print ("Graph contains negative weight cycle")

@@ -9,8 +9,8 @@ class Deque{
 		Deque(){
 			front=rear=-1;
 		}
-		void addtobeg(int val);
-		void addtoend(int val);
+		void addtobeg(int);
+		void addtoend(int);
 		void delfromend();
 		void delfrombeg();
 		void print();

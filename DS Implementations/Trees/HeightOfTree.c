@@ -34,7 +34,7 @@ int height(struct Node* root){
 		int right_tree=height(root->right);
 		return max(left_tree,right_tree) +1;
 	}
-	}
+}
 int main()
 {	struct Node* root=NULL;
 	root=Insert(root,12);
